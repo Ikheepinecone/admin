@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бүтээгдэхүүн | Package.mgl</title>
+  <meta name="description" content="Цаасан уут, хайрцаг, боодлын цаасны бүх хэмжээ, үнэ. Хэмжээгээр нь шүүж, харьцуулж захиална.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="products" data-title="meta.products">
+  <div id="site-header" class="sticky top-0 z-40 min-h-[65px]"></div>
+
+  <main id="main" class="container-page pt-6">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted"><ol class="flex flex-wrap items-center gap-1.5" id="breadcrumb"></ol></nav>
+    <div class="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+      <h1 id="catalog-title" class="h-page" data-i18n="catalog.title">Бүх бүтээгдэхүүн</h1>
+      <p id="result-count" class="text-muted tnum" aria-live="polite"></p>
+    </div>
+    <div class="mt-6 grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)]">
+      <aside id="filters" class="hidden lg:block" aria-labelledby="filters-h"></aside>
+      <div>
+        <div class="flex flex-wrap items-center gap-3 border-b border-line pb-4">
+          <button type="button" id="filters-open" class="btn btn-secondary btn-sm lg:hidden" aria-controls="filters" aria-expanded="false"></button>
+          <div class="inline-flex rounded-full border border-line bg-white p-1 shadow-pill" role="group" id="view-toggle"></div>
+          <div class="ml-auto flex items-center gap-2">
+            <label for="sort" class="hidden text-sm text-muted sm:block" data-i18n="catalog.sort">Эрэмбэлэх</label>
+            <select id="sort" class="field-input h-10 w-auto py-0 pr-10 text-sm"></select>
+          </div>
+          <div id="active-filters" class="flex w-full flex-wrap gap-2 empty:hidden"></div>
+        </div>
+        <div id="results" class="mt-6"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/data/templates.js" defer></script>
+  <script src="assets/js/data/catalog.js" defer></script>
+  <script src="assets/js/core/catalog-store.js" defer></script>
+  <script src="assets/js/core/i18n.js" defer></script>
+  <script src="assets/js/core/util.js" defer></script>
+  <script src="assets/js/core/shop.js" defer></script>
+  <script src="assets/js/core/store.js" defer></script>
+  <script src="assets/js/core/art.js" defer></script>
+  <script src="assets/js/core/layout.js" defer></script>
+  <script src="assets/js/pages/catalog.js" defer></script>
+</body>
+</html>

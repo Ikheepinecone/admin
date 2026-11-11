@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Цаасан уут, хайрцаг, боодлын цаас | Package.mgl</title>
+  <meta name="description" content="Цаасан уут, хайрцаг, боодлын цаасыг бэлэн хэмжээгээр нь онлайнаар захиална. Улаанбаатарт 1–2 хоногт хүргэнэ.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home" data-title="meta.home">
+  <div id="site-header" class="sticky top-0 z-40 min-h-[65px]"></div>
+
+  <main id="main">
+    <section class="bg-canvas" aria-labelledby="hero-h">
+      <div class="container-page flex flex-col items-center pb-14 pt-10 text-center sm:pb-16 sm:pt-14">
+        <div id="constellation" class="flex w-full items-end justify-center" aria-label=""></div>
+        <h1 id="hero-h" class="mt-10 max-w-2xl text-[30px] font-semibold leading-[1.08] sm:text-[42px]" style="letter-spacing:-0.05em" data-i18n="hero.title">Цаасан уут, хайрцаг, боодлын цаас</h1>
+        <form id="hero-search" role="search" class="relative mt-6 w-full max-w-xl" novalidate>
+          <label for="hero-q" class="sr-only" data-i18n="search.label">Хайх</label>
+          <input id="hero-q" name="q" type="search" autocomplete="off" class="field-input h-14 pl-6 pr-16 text-base shadow-pill" data-i18n-placeholder="hero.search">
+          <button type="submit" class="btn-search absolute right-1.5 top-1.5 h-11 w-11" data-i18n-aria-label="search.label"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <nav id="hero-pills" class="mt-5 flex flex-wrap justify-center gap-2" data-i18n-aria-label="home.categories"></nav>
+      </div>
+    </section>
+
+    <section class="container-page pt-16" id="finder" aria-labelledby="finder-h">
+      <form id="finder-form" class="panel flex flex-col gap-5 p-5 sm:p-6 md:flex-row md:items-end md:gap-6" novalidate>
+        <div class="md:w-52 md:shrink-0 md:self-center">
+          <h2 id="finder-h" class="h-section" data-i18n="finder.title">Юу савлах вэ?</h2>
+          <p class="mt-1 text-sm text-muted" data-i18n="finder.hint">Хэмжээг нь см-ээр оруулаарай.</p>
+        </div>
+        <div class="grid flex-1 grid-cols-3 gap-3">
+          <div><label for="fl" class="field-label text-[13px] font-normal text-muted" data-i18n="dim.l">Урт</label><input id="fl" name="fl" type="number" inputmode="decimal" min="0" step="0.5" placeholder="20" class="field-input tnum"></div>
+          <div><label for="fw" class="field-label text-[13px] font-normal text-muted" data-i18n="dim.w">Өргөн</label><input id="fw" name="fw" type="number" inputmode="decimal" min="0" step="0.5" placeholder="10" class="field-input tnum"></div>
+          <div><label for="fh" class="field-label text-[13px] font-normal text-muted" data-i18n="dim.h">Өндөр</label><input id="fh" name="fh" type="number" inputmode="decimal" min="0" step="0.5" placeholder="25" class="field-input tnum"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="finder.submit">Тохирох хэмжээ</button>
+      </form>
+    </section>
+
+    <section class="container-page pt-16" id="categories" aria-labelledby="cat-h">
+      <a href="products.html" class="group inline-flex items-center gap-1"><h2 id="cat-h" class="h-section" data-i18n="home.categories">Ангиллаар үзэх</h2><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <div id="category-grid" class="mt-6 grid gap-4 sm:grid-cols-3"></div>
+    </section>
+
+    <section class="container-page pt-16" id="popular" aria-labelledby="pop-h">
+      <a href="products.html" class="group inline-flex items-center gap-1"><h2 id="pop-h" class="h-section" data-i18n="home.popular">Их захиалагддаг</h2><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <div id="popular-grid" class="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"></div>
+    </section>
+
+    <section class="container-page pt-16" aria-labelledby="custom-h">
+      <div class="panel flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div>
+          <h2 id="custom-h" class="h-section" data-i18n="custom.title">Тусгай хэмжээ эсвэл лого хэвлэл хэрэгтэй юу?</h2>
+          <p class="mt-1.5 text-muted" data-i18n="custom.body">Хүсэлтээ илгээвэл нэг ажлын өдөрт үнийн санал өгнө.</p>
+        </div>
+        <a href="contact.html?topic=custom" class="btn btn-primary shrink-0" data-i18n="custom.cta">Үнийн санал авах</a>
+      </div>
+    </section>
+
+    <section class="container-page grid gap-6 pt-16 lg:grid-cols-[1.25fr_1fr]" id="about" aria-labelledby="about-h">
+      <div class="py-2">
+        <h2 id="about-h" class="h-section" data-i18n="about.title">Бидний тухай</h2>
+        <p class="mt-3 max-w-prose text-[17px] leading-relaxed" data-i18n="about.p1">Package.mgl нь цаасан уут, хайрцаг, боодлын цаасыг бизнес эрхлэгчид болон хувь хүмүүст бөөний болон жижиглэнгийн үнээр нийлүүлдэг.</p>
+        <dl class="mt-6 grid grid-cols-3 gap-3">
+          <div class="tile flex flex-col-reverse justify-end gap-1 p-4"><dt class="text-[13px] leading-snug text-muted" data-i18n="about.f1l">бэлэн хэвийн хэмжээ</dt><dd class="h-section tnum" data-i18n="about.f1v">36</dd></div>
+          <div class="tile flex flex-col-reverse justify-end gap-1 p-4"><dt class="text-[13px] leading-snug text-muted" data-i18n="about.f2l">уутны хамгийн бага захиалга</dt><dd class="h-section tnum" data-i18n="about.f2v">100 ш</dd></div>
+          <div class="tile flex flex-col-reverse justify-end gap-1 p-4"><dt class="text-[13px] leading-snug text-muted" data-i18n="about.f3l">Улаанбаатар доторх хүргэлт</dt><dd class="h-section tnum" data-i18n="about.f3v">1–2 хоног</dd></div>
+        </dl>
+      </div>
+      <div class="panel p-6 sm:p-8" id="home-contact"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/data/templates.js" defer></script>
+  <script src="assets/js/data/catalog.js" defer></script>
+  <script src="assets/js/core/catalog-store.js" defer></script>
+  <script src="assets/js/core/i18n.js" defer></script>
+  <script src="assets/js/core/util.js" defer></script>
+  <script src="assets/js/core/shop.js" defer></script>
+  <script src="assets/js/core/store.js" defer></script>
+  <script src="assets/js/core/art.js" defer></script>
+  <script src="assets/js/core/layout.js" defer></script>
+  <script src="assets/js/pages/home.js" defer></script>
+</body>
+</html>

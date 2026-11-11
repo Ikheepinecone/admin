@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Visual language (DESIGN.md): pillow-soft surfaces. Cards 28px, image wells 20px,
+ * every control a pill. Shadows separate layers instead of borders. Hierarchy comes
+ * from tracking and size, never from heavy weights. Violet appears only on the search
+ * submit and the wordmark dot.
+ */
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
+  body { @apply bg-white font-sans text-ink antialiased tracking-body; }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.045em; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type='number'] { -moz-appearance: textfield; }
+  input[type='search']::-webkit-search-cancel-button { -webkit-appearance: none; }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8; }
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* Type */
+  .h-page { @apply text-[28px] font-semibold leading-tight sm:text-[32px]; letter-spacing: -0.045em; }
+  .h-section { @apply text-[20px] font-semibold leading-tight; letter-spacing: -0.05em; }
+
+  /* Buttons: all pills */
+  .btn { @apply inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 text-[15px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-sm { @apply h-10 px-4 text-sm; }
+  .btn-primary { @apply bg-ink text-white hover:bg-ink-2; }
+  .btn-secondary { @apply border border-line bg-white text-ink shadow-pill hover:border-black/20; }
+  .btn-quiet { @apply text-ink hover:bg-mist; }
+  .icon-btn { @apply inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-mist; }
+  /* The one violet control: circular search submit with a tinted glow */
+  .btn-search { @apply inline-flex items-center justify-center rounded-full bg-violet text-white shadow-violet transition-colors hover:bg-violet-2; }
+
+  .link { @apply font-medium text-ink underline decoration-black/25 decoration-1 underline-offset-4 transition-colors hover:decoration-ink; }
+
+  /* Forms: pill inputs, 20px textareas */
+  .field-label { @apply mb-1.5 block text-sm font-medium text-ink; }
+  .field-input { @apply block h-12 w-full rounded-full border border-black/10 bg-white px-5 text-[15px] text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-black/10; }
+  textarea.field-input { @apply h-auto min-h-[8.5rem] rounded-[20px] py-3.5 leading-relaxed; }
+  select.field-input { @apply appearance-none bg-no-repeat pr-11; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-size: 18px; background-position: right 16px center; }
+  .field-input[aria-invalid='true'] { @apply border-bad ring-2 ring-bad/15; }
+  .field-error { @apply mt-1.5 px-1 text-sm text-bad; }
+  .field-hint { @apply mt-1.5 px-1 text-sm text-muted; }
+  .check { @apply h-5 w-5 shrink-0 rounded-md border-line-strong text-ink accent-ink; }
+
+  /* Option tiles (radio/checkbox styled as selectable surfaces) */
+  .opt-input { @apply sr-only; }
+  .opt { @apply relative flex cursor-pointer select-none rounded-[20px] border border-line bg-white px-4 py-3 text-left transition-colors hover:border-black/30; }
+  .opt-round { @apply rounded-full; }
+  .opt-input:checked + .opt { @apply border-ink ring-1 ring-ink; }
+  .opt-input:focus-visible + .opt { outline: 2px solid #000; outline-offset: 2px; }
+  .opt-input:disabled + .opt { @apply cursor-not-allowed opacity-40; }
+
+  /* Chips: quick picks and removable filter tags */
+  .chip { @apply inline-flex h-9 items-center gap-1.5 rounded-full border border-line bg-white px-4 text-sm font-medium text-ink shadow-pill transition-colors; }
+
+  /* Colour swatches */
+  .swatch { @apply inline-block h-4 w-4 rounded-full ring-1 ring-black/15; }
+  .swatch-lg { @apply h-7 w-7; }
+
+  /* Surfaces */
+  .tile { @apply rounded-tile bg-stage; }                       /* image well */
+  .panel { @apply rounded-panel bg-white shadow-card; }         /* elevated card, no border */
+  .badge { @apply inline-flex h-6 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 text-xs font-medium; }
+  .badge-stock { @apply bg-stage text-ink; }
+  .badge-stock::before { content: ''; @apply h-1.5 w-1.5 rounded-full bg-ok; }
+  .badge-mto { @apply bg-white text-muted ring-1 ring-inset ring-line; }
+
+  /* Quantity stepper */
+  .qty { @apply inline-flex h-12 items-stretch overflow-hidden rounded-full border border-black/10 bg-white; }
+  .qty button { @apply flex w-12 items-center justify-center text-ink transition-colors hover:bg-mist disabled:opacity-30 disabled:hover:bg-transparent; }
+  .qty input { @apply w-16 bg-transparent text-center text-[15px] font-semibold tnum focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black/10; }
+
+  /* Data tables */
+  .data-table { @apply w-full border-collapse text-sm; }
+  .data-table th { @apply whitespace-nowrap border-b border-line py-3 pr-4 text-left text-[13px] font-medium text-muted; }
+  .data-table td { @apply border-b border-line py-3 pr-4 align-middle; }
+  .data-table tbody tr:last-child td { @apply border-b-0; }
+  .data-table tbody tr:hover td { @apply bg-mist; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toast-enter { animation: pk-rise .22s ease-out; }
+}
+@keyframes pk-rise { from { opacity: 0; transform: translateY(8px); } }
+
+@media print {
+  #site-header, #site-footer, #compare-tray, #toasts { display: none !important; }
+}

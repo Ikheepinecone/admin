@@ -1,0 +1,14 @@
+{
+  "name": "package-mgl-shop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Packaging e-commerce front-end (HTML + Tailwind CSS + vanilla JS)",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./public/assets/css/styles.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/assets/css/styles.css --watch",
+    "serve": "npx --yes http-server public -p 8080 -c-1"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
